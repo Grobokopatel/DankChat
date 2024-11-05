@@ -1,3 +1,5 @@
+# Форк DankChat, где эмоуты не предлагаются, если в текущем слове есть кирилица.
+
 # <img src="https://user-images.githubusercontent.com/85196642/153115305-e39f854d-6dc9-4975-a60b-653f6ecc87df.png" height="75"> DankChat
 
 [![Build status](https://github.com/flex3r/DankChat/workflows/Android%20CI/badge.svg)](https://github.com/flex3r/DankChat/actions)  

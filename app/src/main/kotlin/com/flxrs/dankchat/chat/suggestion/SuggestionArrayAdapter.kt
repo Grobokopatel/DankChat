@@ -102,6 +102,12 @@ class SuggestionsArrayAdapter(
     }
 
     private fun List<Suggestion.EmoteSuggestion>.filterEmotes(constraint: String): List<Suggestion.EmoteSuggestion> {
+		for (i in constraint) {
+			if(Character.UnicodeBlock.of(i).equals(Character.UnicodeBlock.CYRILLIC)) {
+				return emptyList()
+			}
+		}
+		
         val exactSuggestions = filter { it.emote.code.contains(constraint) }
         val caseInsensitiveSuggestions = (this - exactSuggestions.toSet()).filter {
             it.emote.code.contains(constraint, ignoreCase = true)

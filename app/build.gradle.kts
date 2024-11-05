@@ -20,7 +20,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.flxrs.dankchat"
+        applicationId = "com.flxrs.dankchat_no_russian_suggestions"
         minSdk = 21
         targetSdk = 34
         versionCode = 30914
@@ -37,10 +37,10 @@ android {
 
     signingConfigs {
         create("release") {
-            storeFile = file("keystore/DankChat.jks").takeIf { it.exists() } ?: File(System.getProperty("user.home") + "/dankchat/DankChat.jks")
-            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            // storeFile = file("keystore/DankChat.jks").takeIf { it.exists() } ?: File(System.getProperty("user.home") + "/dankchat/DankChat.jks")
+            // storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+            // keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+            // keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
         }
     }
 
@@ -67,7 +67,7 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             manifestPlaceholders["applicationLabel"] = "@string/app_name"
-            signingConfig = signingConfigs.getByName("release")
+            // signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
