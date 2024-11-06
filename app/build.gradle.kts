@@ -24,7 +24,7 @@ android {
         minSdk = 21
         targetSdk = 34
         versionCode = 30914
-        versionName = "3.9.14"
+        versionName = "3.9.20"	
 
         ksp {
             arg("room.schemaLocation", "$projectDir/schemas")
@@ -37,10 +37,10 @@ android {
 
     signingConfigs {
         create("release") {
-            // storeFile = file("keystore/DankChat.jks").takeIf { it.exists() } ?: File(System.getProperty("user.home") + "/dankchat/DankChat.jks")
-            // storePassword = System.getenv("SIGNING_STORE_PASSWORD")
-            // keyAlias = System.getenv("SIGNING_KEY_ALIAS")
-            // keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
+            storeFile = file("keystore/DankChat.jks").takeIf { it.exists() } ?: File(System.getProperty("user.home") + "/dankchat/DankChat.jks")
+            storePassword = System.getenv("SIGNING_STORE_PASSWORD")
+            keyAlias = System.getenv("SIGNING_KEY_ALIAS")
+            keyPassword = System.getenv("SIGNING_KEY_PASSWORD")
         }
     }
 
@@ -67,9 +67,11 @@ android {
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             manifestPlaceholders["applicationLabel"] = "@string/app_name"
-            // signingConfig = signingConfigs.getByName("release")
+            signingConfig = signingConfigs.getByName("release")
         }
         getByName("debug") {
+			isMinifyEnabled = true
+            isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
             manifestPlaceholders["applicationLabel"] = "@string/app_name"
         }
